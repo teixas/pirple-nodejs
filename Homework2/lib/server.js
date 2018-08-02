@@ -117,6 +117,7 @@ server.unifiedServer = function (request, response) {
 server.router = {
     'users' : handlers.users,
     'tokens' : handlers.tokens,
+    'menu' : handlers.menu,
 };
 
 // Init script

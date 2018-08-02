@@ -5,7 +5,8 @@
  */
 
 // Dependencies
-var _tokens = require('./tokens'),
+var _menu = require('./menu'),
+    _tokens = require('./tokens'),
     _users = require('./users'),
 
     // Define all the handlers
@@ -34,6 +35,12 @@ handlers.users = function (data, callback) {
 handlers.tokens = function (data, callback){
     var acceptableMethods = ['post', 'get', 'put', 'delete'];
     handlers._callSubHandler(data, callback, _tokens, acceptableMethods);
+};
+
+// Menu
+handlers.menu = function (data, callback){
+    var acceptableMethods = ['get'];
+    handlers._callSubHandler(data, callback, _menu, acceptableMethods);
 };
 
 // Export the handlers
