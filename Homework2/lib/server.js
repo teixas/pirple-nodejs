@@ -118,6 +118,7 @@ server.router = {
     'users' : handlers.users,
     'tokens' : handlers.tokens,
     'menu' : handlers.menu,
+    'shopping-cart' : handlers.shoppingCart
 };
 
 // Init script

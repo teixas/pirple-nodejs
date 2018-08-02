@@ -34,7 +34,8 @@ _users.post = function (data, callback) {
                         'lastName' : lastName,
                         'email' : email,
                         'streetAddress' : streetAddress,
-                        'hashedPassword' : hashedPassword
+                        'hashedPassword' : hashedPassword,
+                        'shoppingCart': []
                     };
 
                     // Store the user
