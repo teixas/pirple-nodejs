@@ -16,24 +16,24 @@ handlers.notFound = function (data, callback) {
     callback(404);
 };
 
-// Users
-handlers.users = function (data, callback) {
-    var acceptableMethods = ['post', 'get', 'put', 'delete'];
-    if (acceptableMethods.indexOf(data.method) > -1) {
-        _users[data.method](data, callback);
+handlers._callSubHandler = function (data, callback, handler, methods) {
+    if (methods.indexOf(data.method) > -1) {
+        handler[data.method](data, callback);
     } else {
         callback(405);
     }
 };
 
+// Users
+handlers.users = function (data, callback) {
+    var acceptableMethods = ['post', 'get', 'put', 'delete'];
+    handlers._callSubHandler(data, callback, _users, acceptableMethods);
+};
+
 // Tokens
 handlers.tokens = function (data, callback){
     var acceptableMethods = ['post', 'get', 'put', 'delete'];
-    if (acceptableMethods.indexOf(data.method) > -1) {
-        _tokens[data.method](data, callback);
-    } else {
-        callback(405);
-    }
+    handlers._callSubHandler(data, callback, _tokens, acceptableMethods);
 };
 
 // Export the handlers

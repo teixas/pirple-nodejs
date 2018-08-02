@@ -1,8 +1,8 @@
 'use strict';
 
 // Dependencies
-var _data = require('./data'),
-    helpers = require('./helpers'),
+var _data = require('../data'),
+    helpers = require('../helpers'),
     _tokens = require('./tokens'),
 
     // Container for all the users methods
