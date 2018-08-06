@@ -6,6 +6,7 @@
 
 // Dependencies
 var _menu = require('./menu'),
+    _orders = require('./orders'),
     _shoppingCart = require('./shopping-cart'),
     _tokens = require('./tokens'),
     _users = require('./users'),
@@ -48,6 +49,12 @@ handlers.menu = function (data, callback){
 handlers.shoppingCart = function (data, callback){
     var acceptableMethods = ['post'];
     handlers._callSubHandler(data, callback, _shoppingCart, acceptableMethods);
+};
+
+// Orders
+handlers.orders = function (data, callback){
+    var acceptableMethods = ['post'];
+    handlers._callSubHandler(data, callback, _orders, acceptableMethods);
 };
 
 // Export the handlers

@@ -4,10 +4,10 @@
 var _data = require('../data'),
     _tokens = require('./tokens'),
 
-    // Container for all the users methods
+    // Container for all the shopping cart methods
     _shoppingCart  = {};
 
-// Users - post
+// Shopping cart - post
 // Required data: email, array of itemId, quantity
 // Optional data: none
 _shoppingCart.post = function (data, callback) {
