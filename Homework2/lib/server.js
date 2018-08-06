@@ -7,15 +7,16 @@
  // Dependencies
 var http = require('http'),
     https = require('https'),
-    url = require('url'),
     StringDecoder = require('string_decoder').StringDecoder,
-    config = require('./config'),
     fs = require('fs'),
-    handlers = require('./handlers'),
-    helpers = require('./helpers'),
     path = require('path'),
+    url = require('url'),
     util = require('util'),
     debug = util.debuglog('server'),
+
+    config = require('./config'),
+    handlers = require('./handlers'),
+    helpers = require('./helpers'),
 
 // Instantiate the server module object
     server = {};
@@ -119,7 +120,8 @@ server.router = {
     'tokens' : handlers.tokens,
     'menu' : handlers.menu,
     'shopping-cart' : handlers.shoppingCart,
-    'orders' : handlers.orders
+    'orders' : handlers.orders,
+    'pay' : handlers.pay
 };
 
 // Init script

@@ -35,6 +35,16 @@ helpers.hash = function (str) {
     return false;
 };
 
+helpers.sendStripePayment = function (token, orderId, amount, callback) {
+    var stripe = require('stripe')(token);
+    stripe.charges.create({
+        amount: amount,
+        currency: 'usd',
+        source: 'tok_visa',
+        metadata: {'order_id': orderId}
+    }, callback);
+};
+
 // Create a string of random alphanumeric characters, of a given length
 helpers.createRandomString = function (strLength) {
     strLength = typeof strLength  === 'number' && strLength > 0 ? strLength : false;
