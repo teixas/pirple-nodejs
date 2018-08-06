@@ -42,7 +42,7 @@ _orders.post = function (data, callback) {
                                     'email' : email,
                                     'id' : orderId,
                                     'items' : userData.shoppingCart,
-                                    'status: 'waiting payment'
+                                    'status': 'waiting payment'
                                 };
                             orderObject.total = _orders.calculateTotal(orderObject.items);
                             // Store the order
