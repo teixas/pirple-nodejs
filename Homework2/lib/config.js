@@ -12,7 +12,12 @@ environments.staging = {
     'httpPort' : 3000,
     'httpsPort' : 3001,
     'envName' : 'staging',
-    'hashingSecret' : 'thisIsASecret',
+    'hashingSecret' : 'thisIsASecret'
+};
+environments.staging.mailgun = {
+    'apiKey': '5e1c759ef02be9a184674eb9d22f6d85-7efe8d73-4fef498e',
+    'domain': 'sandbox433973840f7b46e1b4fd2afd323167ae.mailgun.org',
+    'sender': 'pirple@sandbox433973840f7b46e1b4fd2afd323167ae.mailgun.org'
 };
 
 // Production environment
@@ -20,7 +25,12 @@ environments.production = {
     'httpPort' : 5000,
     'httpsPort' : 5001,
     'envName' : 'production',
-    'hashingSecret' : 'thisIsAlsoASecret',
+    'hashingSecret' : 'thisIsAlsoASecret'
+};
+environments.production.mailgun = {
+    'apiKey': '5e1c759ef02be9a184674eb9d22f6d85-7efe8d73-4fef498e',
+    'domain': 'sandbox433973840f7b46e1b4fd2afd323167ae.mailgun.org',
+    'sender': 'pirple@sandbox433973840f7b46e1b4fd2afd323167ae.mailgun.org'
 };
 
 // Determine which environment was passed as a command-line argument

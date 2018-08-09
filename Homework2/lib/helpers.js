@@ -11,6 +11,11 @@ var crypto = require('crypto'),
 
     config = require('./config'),
 
+    mailgun = require('mailgun-js')({
+        apiKey: config.mailgun.apiKey,
+        domain: config.mailgun.domain
+    }),
+
     // Container for all the helpers
     helpers = {};
 
@@ -43,6 +48,20 @@ helpers.sendStripePayment = function (token, orderId, amount, callback) {
         source: 'tok_visa',
         metadata: {'order_id': orderId}
     }, callback);
+};
+
+
+// Send email through Mailgun services
+helpers.sendEmail = function (destination, subject, text, callback) {
+    var data = {
+        from: config.mailgun.sender,
+        to: destination,
+        subject: subject,
+        text: text
+    };
+    mailgun.messages().send(data, function (error, body) {
+        callback(error, body);
+    });
 };
 
 // Create a string of random alphanumeric characters, of a given length
