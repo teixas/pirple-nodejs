@@ -1,0 +1,27 @@
+{
+  "name": "homework2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "mailgun-js": "^0.20.0",
+    "stripe": "^6.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teixas/pirple-nodejs.git"
+  },
+  "author": "Nuno Teixeira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teixas/pirple-nodejs/issues"
+  },
+  "homepage": "https://github.com/teixas/pirple-nodejs#readme"
+}
