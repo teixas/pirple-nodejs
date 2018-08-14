@@ -54,7 +54,7 @@ handlers.shoppingCart = function (data, callback){
 
 // Orders
 handlers.orders = function (data, callback){
-    var acceptableMethods = ['post'];
+    var acceptableMethods = ['post', 'get'];
     handlers._callSubHandler(data, callback, _orders, acceptableMethods);
 };
 

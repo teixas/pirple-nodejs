@@ -1,7 +1,8 @@
 'use strict';
 
 // Dependencies
-var _data = require('../data'),
+var async = require('async'),
+    _data = require('../data'),
     helpers = require('../helpers'),
     _menu = require('./menu'),
     _tokens = require('./tokens'),
@@ -17,6 +18,7 @@ _orders.calculateTotal = function (items) {
     });
     return total;
 };
+
 // Orders - post
 // Required data: email
 // Optional data: none
@@ -78,6 +80,53 @@ _orders.post = function (data, callback) {
     } else {
         callback(400, {'Error' : 'Missing required field.'});
     }
+};
+
+// Orders - get
+// Required data: email
+// Optional data: none
+_orders.get = function (data, callback) {
+    // Check that all required fields are filled out
+    var email = typeof (data.queryStringObject.email) === 'string' && data.queryStringObject.email.trim().length > 0 ? data.queryStringObject.email.trim() : false,
+        token;
+
+    if (email) {
+        // Get token from headers
+        token = typeof (data.headers.token) === 'string' ? data.headers.token : false;
+
+        // Verify that the given token is valid for the email
+        _tokens.verifyToken(token, email, function (tokenIsValid) {
+            if (tokenIsValid) {
+                _data.list('orders', function (error, orders) {
+                    var userOrders = [];
+                    async.each(orders, function (order, cb) {
+                        _data.read('orders', order, function (err, orderData) {
+                            if (!err && orderData) {
+                                if (orderData.email === email) {
+                                    userOrders.push(orderData);
+                                }
+                                cb();
+                            } else {
+                                callback(404);
+                            }
+                        });
+                    }, function (err) {
+                        if (!err) {
+                            callback(200, userOrders);
+                        }
+                    });
+                });
+            } else {
+                callback(
+                    403,
+                    {"Error" : "Missing required token in header, or token is invalid."}
+                );
+            }
+        });
+    } else {
+        callback(400, {'Error' : 'Missing required field.'});
+    }
+
 };
 
 // Export the handlers
