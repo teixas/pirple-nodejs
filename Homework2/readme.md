@@ -3,8 +3,11 @@ All methods marked with **(*)** expects a token value on header.
 **Users**
 
 *GET* **(*)**
+
 Get information of an user
+
 URL: */users?email=foo@bar.com*
+
 Returns:
 
     {
@@ -16,8 +19,11 @@ Returns:
     }
     
 *POST*
+
 Add a new user
+
 URL: */users*
+
 Body:
 
     {
@@ -31,8 +37,11 @@ Body:
 Returns: Empty body with status code
 
 *PUT* **(*)**
+
 Edit user information
+
 URL: */users*
+
 Body:
 
     {
@@ -44,15 +53,21 @@ Body:
 Returns: Empty body with status code
 
 *DELETE* **(*)**
+
 Delete an user account
+
 URL: */users?email=foo@bar.com*
+
 Returns: Empty body with status code
 
 **Tokens**
 
 *GET*
+
 Get information from a token
+
 URL: */tokens?id=na4ctflv0a29c2sob7sf*
+
 Returns:
 
     {
@@ -63,8 +78,11 @@ Returns:
 
 
 *POST*
+
 Create a new token
+
 URL: */tokens*
+
 Body:
 
     {
@@ -82,8 +100,11 @@ Returns:
 
 
 *PUT*
+
 Extend token expiration an hour (if not expired)
+
 URL: */tokens*
+
 Body:
 
     {
@@ -94,15 +115,21 @@ Body:
 Returns: Empty body with status code
 
 *DELETE*
+
 Delete a token
+
 URL: */tokens?id=na4ctflv0a29c2sob7sf*
+
 Returns: Empty body with status code
 
 **Menu**
 
 *GET*
+
 Return menu list
+
 URL: */menu*
+
 Returns:
 
     [
@@ -132,8 +159,11 @@ Returns:
 **Shopping cart**
 
 *POST* **(*)**
+
 Add items to shopping cart
+
 URL: */shopping-cart*
+
 Body:
 
     {
@@ -153,9 +183,13 @@ Body:
 Returns: Empty body with status code
 
 **Orders**
+
 *POST* **(*)**
+
 Creates an order from items on shopping cart
+
 URL: */orders?email=foo@bar.com*
+
 Returns:
 
     {
@@ -176,8 +210,11 @@ Returns:
     }
 
 *GET* **(*)**
+
 Get all orders from user
+
 URL: */orders?email=foo@bar.com*
+
 Returns:
 
     [
@@ -201,9 +238,13 @@ Returns:
     ]
 
 **Pay**
+
 *POST* **(*)**
+
 Pay an order
+
 URL: */pay*
+
 Body:
 
     {
