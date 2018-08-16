@@ -1,0 +1,7 @@
+.data/users/*
+.data/tokens/*
+.data/orders/*
+!.data/.keep
+!.data/users/.keep
+!.data/tokens/.keep
+!.data/orders/.keep
