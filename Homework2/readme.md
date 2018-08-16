@@ -1,3 +1,25 @@
+This API is based on implementation available at course's Section 3 with
+sligthly refactoring on handlers that are splitted on several dedicated files.
+With the available API methods we can:
+
+- get, add, edit and delete users;
+- create new tokens, extend unexpired tokens, delete tokens;
+- obtain menu list;
+- add menu items to shopping cart;
+- create order from items on shopping cart and list user orders;
+- pay for our orders
+
+Payments are done using Stripe sandbox and receipts are sent through Maingun
+services. These receipts are sent by an worker that runs in background.
+
+This project has some dependencies defined in *package.json*:
+
+- async
+- mailgun-js
+- stripe
+
+**API**
+
 All methods marked with **(*)** expects a token value on header.
 
 **Users**
